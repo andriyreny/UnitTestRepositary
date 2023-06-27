@@ -1,5 +1,8 @@
-﻿namespace UnitTestRepositary.Models
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace UnitTestRepositary.Models
 {
+    [ExcludeFromCodeCoverage]
     public class Student
     {
         public string Name { get; set; }
