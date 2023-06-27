@@ -4,13 +4,6 @@ namespace UnitTestRepositary.UnitTests
 {
     public class PlayerAnalyzerTests
     {
-        private readonly PlayerAnalyzer _playerAnalyzer;
-
-        public PlayerAnalyzerTests()
-        {
-            _playerAnalyzer = new PlayerAnalyzer();
-        }
-
         [Fact]
         public void CalculateScore_NormalPlayer_ReturnsScore()
         {
@@ -21,7 +14,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var score = _playerAnalyzer.CalculateScore(players);
+            var score = PlayerAnalyzer.CalculateScore(players);
 
             // Assert
             Assert.Equal(25 * 5 * 2, score);
@@ -37,7 +30,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var score = _playerAnalyzer.CalculateScore(players);
+            var score = PlayerAnalyzer.CalculateScore(players);
 
             // Assert
             Assert.Equal(15 * 3 * 3 * 0.5, score);
@@ -53,7 +46,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var score = _playerAnalyzer.CalculateScore(players);
+            var score = PlayerAnalyzer.CalculateScore(players);
 
             // Assert
             Assert.Equal(35 * 15 * 4 * 1.2, score);
@@ -70,7 +63,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var score = _playerAnalyzer.CalculateScore(players);
+            var score = PlayerAnalyzer.CalculateScore(players);
 
             // Assert
             Assert.Equal((25 * 5 * 2) + (15 * 3 * 3 * 0.5), score);
@@ -86,7 +79,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => _playerAnalyzer.CalculateScore(players));
+            Assert.Throws<ArgumentNullException>(() => PlayerAnalyzer.CalculateScore(players));
         }
 
         [Fact]
@@ -96,7 +89,7 @@ namespace UnitTestRepositary.UnitTests
             var players = new List<Player>();
 
             // Act
-            var score = _playerAnalyzer.CalculateScore(players);
+            var score = PlayerAnalyzer.CalculateScore(players);
 
             // Assert
             Assert.Equal(0, score);

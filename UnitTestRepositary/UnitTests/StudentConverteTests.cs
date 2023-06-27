@@ -4,13 +4,6 @@ namespace UnitTestRepositary.UnitTests
 {
     public class StudentConverteTests
     {
-        private readonly StudentConverte _converter;
-
-        public StudentConverteTests()
-        {
-            _converter = new StudentConverte();
-        }
-
         [Fact]
         public void ConvertStudents_HighAchiever_ReturnsHonorRollTrue()
         {
@@ -21,7 +14,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var result = _converter.ConvertStudents(students);
+            var result = StudentConverte.ConvertStudents(students);
 
             // Assert
             Assert.Single(result);
@@ -38,7 +31,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var result = _converter.ConvertStudents(students);
+            var result = StudentConverte.ConvertStudents(students);
 
             // Assert
             Assert.Single(result);
@@ -55,7 +48,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var result = _converter.ConvertStudents(students);
+            var result = StudentConverte.ConvertStudents(students);
 
             // Assert
             Assert.Single(result);
@@ -72,7 +65,7 @@ namespace UnitTestRepositary.UnitTests
             };
 
             // Act
-            var result = _converter.ConvertStudents(students);
+            var result = StudentConverte.ConvertStudents(students);
 
             // Assert
             Assert.Single(result);
@@ -86,7 +79,7 @@ namespace UnitTestRepositary.UnitTests
             var students = new List<Student>();
 
             // Act
-            var result = _converter.ConvertStudents(students);
+            var result = StudentConverte.ConvertStudents(students);
 
             // Assert
             Assert.Empty(result);
@@ -99,7 +92,7 @@ namespace UnitTestRepositary.UnitTests
             var converter = new StudentConverte();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => _converter.ConvertStudents(null));
+            Assert.Throws<ArgumentNullException>(() => StudentConverte.ConvertStudents(null));
         }
     }
 }
