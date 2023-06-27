@@ -11,7 +11,7 @@ namespace UnitTestRepositary.Models
 
         public int Experience { get; set; }
 
-        public List<int> Skills { get; set; }
+        public List<int>? Skills { get; set; }
 
     }
 }
