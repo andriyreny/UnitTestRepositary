@@ -1,0 +1,87 @@
+Here is c# class "StudentConverte":
+
+    public class StudentConverte
+    {
+        public List<Student> ConvertStudents(List<Student> students)
+        {
+            return students.Select(student =>
+            {
+                var result = new Student
+                {
+                    Name = student.Name,
+                    Age = student.Age,
+                    Grade = student.Grade
+                };
+
+                if (student.Grade > 90)
+                {
+                    if (student.Age < 21)
+                    {
+                        result.Exceptional = true;
+                    }
+                    else
+                    {
+                        result.HonorRoll = true;
+                    }
+                }
+                else if (student.Grade > 70)
+                {
+                    result.Passed = true;
+                }
+                else
+                {
+                    result.Passed = false;
+                }
+
+                return result;
+
+            }).ToList();
+        }
+    }
+	
+where "Student" is class:
+
+    public class Student
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public int Grade { get; set; }
+
+        public bool Exceptional { get; set; }
+
+        public bool HonorRoll { get; set; }
+
+        public bool Passed { get; set; }
+    }
+	
+Please write unit tests for class "StudentConverte"
+by using xUnit library and by using next test cases:
+
+Positive Test Cases: 
+
+Case 1: High Achiever 
+Given an array with a student object of age 21 or above and grade above 90, the function should return an object with the additional field HonorRoll = true. 
+
+Case 2: Exceptional Young High Achiever 
+Given an array with a student object of age less than 21 and grade above 90, the function should return an object with the additional field Exceptional = true. 
+
+Case 3: Passed Student 
+Given an array with a student object of grade between 71 and 90 (inclusive), the function should return an object with the additional field Passed = true. 
+
+Case 4: Failed Student 
+Given an array with a student object of grade 70 or less, the function should return an object with the additional field Passed = false. 
+
+Negative Test Cases: 
+
+Case 1: Empty Array 
+Given an empty array, the function should return an empty array. 
+
+Case 2: Not an Array  
+Given a null as an input the function should throw an error. 
+
+?
+
+Please rewrite your unit test class "StudentConverteTests" that you just wrote above by using "SetUp" method for xUnit library 
+and initialize the object "StudentConverte" in this "SetUp" method?
